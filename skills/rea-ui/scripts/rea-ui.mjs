@@ -48,7 +48,7 @@ var ReaCatalog = class _ReaCatalog {
   byId;
   static async open(overrides = {}) {
     const paths = {
-      libraryRoot: overrides.libraryRoot ?? path.dirname(fileURLToPath(import.meta.resolve("@local/affectui/package.json"))),
+      libraryRoot: overrides.libraryRoot ?? path.dirname(fileURLToPath(import.meta.resolve("@rea-ui/react/package.json"))),
       dataRoot: overrides.dataRoot ?? fileURLToPath(new URL("../data/", import.meta.url)),
       tokensPath: overrides.tokensPath ?? fileURLToPath(import.meta.resolve("@rea-ui/tokens/json"))
     };
@@ -190,7 +190,7 @@ var ReaCatalog = class _ReaCatalog {
       language: "tsx",
       code: selected.usage[mode],
       files: mode === "local" ? [selected.tsxFileName, selected.cssFileName] : [],
-      instructions: mode === "local" ? "Put the downloaded TSX/CSS pair in ./components beside this example." : "Install the private @local/affectui package. Its component styles are included."
+      instructions: mode === "local" ? "Put the downloaded TSX/CSS pair in ./components beside this example." : "Install the private @rea-ui/react package. Its component styles are included."
     };
   }
   async tokens(group) {
@@ -204,7 +204,7 @@ var ReaCatalog = class _ReaCatalog {
     };
   }
   async notice() {
-    const [notice, license] = await Promise.all([readWithin(this.paths.dataRoot, "NOTICE.md"), readWithin(this.paths.dataRoot, "affectui-MIT.txt")]);
+    const [notice, license] = await Promise.all([readWithin(this.paths.dataRoot, "NOTICE.md"), readWithin(this.paths.dataRoot, "upstream-MIT.txt")]);
     return `${notice}
 
 ## Preserved MIT notice for official free components

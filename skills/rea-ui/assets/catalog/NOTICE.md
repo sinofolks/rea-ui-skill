@@ -1,8 +1,8 @@
 # Provenance and licensing
 
-This public skill distributes the TSX/CSS pairs available from the rea/ui showcase. It combines implementations derived from affectUI's official free-source repository with implementations reconstructed from publicly loaded browser previews. It is not an official affectUI release.
+This public skill distributes the TSX/CSS pairs available from the rea/ui showcase. It combines implementations derived from the upstream free-source repository by Florian Höller (adfects) with implementations reconstructed from publicly loaded browser previews. It is an independently maintained distribution, not an official upstream release.
 
-Each catalog entry records its provenance. Twenty-three free components derive from the official TSX implementations. The corresponding MIT notice, Copyright 2026 Florian Höller (adfects), is preserved in [affectui-MIT.txt](affectui-MIT.txt). Resource entries distinguish official free implementations from reconstructed previews in the same way.
+Each catalog entry records its provenance. Twenty-three free components derive from the official TSX implementations. The corresponding MIT notice, Copyright 2026 Florian Höller (adfects), is preserved in [upstream-MIT.txt](upstream-MIT.txt). Resource entries distinguish official free implementations from reconstructed previews in the same way.
 
 The remaining 67 component implementations and the resource entries marked reconstructed were recovered from public browser code. Their upstream ownership and licensing status remain unchanged. The free-source MIT notice does not grant a license for the entire recovered library. This distribution contains no Pro access keys or authenticated Pro source downloads.
 

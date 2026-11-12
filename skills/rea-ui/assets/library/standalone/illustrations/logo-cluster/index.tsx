@@ -7,7 +7,7 @@ import * as React from "react";
 import { type ReactElement, useEffect, useState, type CSSProperties } from "react";
 import * as React_jsx_runtime_CTsRTJUX from "react/jsx-runtime";
 /*
- * Logo Cluster – the affectUI mark in the middle, company logos gathered around it, in component logic and public types.
+ * Logo Cluster – the rea/ui mark in the middle, company logos gathered around it, in component logic and public types.
  * When it comes into view, the middle circle appears first, then the logos bounce out of it one after another
  * to their spots around it. Once they have landed, the ring turns slowly clockwise; the logos stay upright.
  * The middle is a plain white disc that the bubbles tuck under slightly.
@@ -155,7 +155,7 @@ const MARK =
 const u_component = (n: number) => `calc(${n} * var(--ui-lc-u))`;
 function LogoCluster({
   className,
-  label = "The affectUI mark with company logos bouncing out around it",
+  label = "The rea/ui mark with company logos bouncing out around it",
 }: LogoClusterProps) {
   const [shown, setShown] = useState(false);
   const [root, setRoot] = useState<HTMLDivElement | null>(null);
@@ -359,7 +359,7 @@ var n_demo_CkkSZhS9: RecoveredValue = t_react_BkAXpnfr(),
     `calc(${e} * var(--ui-lc-u))`;
 function ComponentC({
   className,
-  label = `The affectUI mark with company logos bouncing out around it`,
+  label = `The rea/ui mark with company logos bouncing out around it`,
 }: RecoveredValue): RecoveredValue {
   let [s, c]: RecoveredValue = (0, n_demo_CkkSZhS9.useState)(!1),
     [u, d]: RecoveredValue = (0, n_demo_CkkSZhS9.useState)(null);

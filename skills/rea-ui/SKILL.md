@@ -36,7 +36,7 @@ Search by English component name, slug or category, then use the returned `secti
 
 For copyable usage, keep the complete TSX and CSS files together and preserve their filenames and relative CSS import. The Usage example assumes a `components/` directory; adjust that import to the target project's actual folder. Preserve the client directive, named exports, types and dynamic inline styles. For large screens, use the helper's `copy` command so full source does not need to enter the conversation. It refuses to overwrite existing files; merge existing project code deliberately.
 
-Use package-mode Usage if the target project already installs the private `@local/affectui` package. Package entry points include their component styles. Copyable usage requires React 19 and a build tool that supports CSS imports. Check the returned asset URLs for resources that use remote images.
+Use package-mode Usage if the target project already installs the private `@rea-ui/react` package. Package entry points include their component styles. Copyable usage requires React 19 and a build tool that supports CSS imports. Check the returned asset URLs for resources that use remote images.
 
 `@rea-ui/tokens/css` is scoped to `.rea-theme`; inspect tokens before applying a theme. Resource previews do not automatically have the same configurable Props as components.
 

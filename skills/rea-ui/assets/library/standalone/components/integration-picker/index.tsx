@@ -304,7 +304,7 @@ function IntegrationPickerView({
 }) {
   const {
     integrations = defaultIntegrations,
-    appName = "affectUI",
+    appName = "rea/ui",
     appIcon,
     onExplore,
     onBack,

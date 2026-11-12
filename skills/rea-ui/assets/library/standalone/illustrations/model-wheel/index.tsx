@@ -29,7 +29,7 @@ type ModelWheelProps = {
   /** Accessible description of the scene */
   label?: string;
 };
-/** Brand marks: Simple Icons (CC0) and the OpenAI mark from the affectUI Chat Composer */
+/** Brand marks: Simple Icons (CC0) and the OpenAI mark from the rea/ui Chat Composer */
 const defaultModels: WheelModel[] = [
   {
     name: "Claude",

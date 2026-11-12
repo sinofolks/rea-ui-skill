@@ -62,4 +62,4 @@ npm test
 
 ## 来源与许可
 
-本项目不是 affectUI 官方发布。helper 和技能说明使用 [MIT 许可](LICENSE.helper.txt)；该许可不覆盖全部组件和资源。官方免费源文件的 MIT 声明单独保留；从公开浏览器预览重建的实现仍保留其上游权利与许可状态。完整说明见 [NOTICE](NOTICE.md) 与 [资产来源](skills/rea-ui/assets/catalog/NOTICE.md)。
+本项目为独立维护的分发版本。helper 和技能说明使用 [MIT 许可](LICENSE.helper.txt)；该许可不覆盖全部组件和资源。官方免费源文件的 MIT 声明单独保留；从公开浏览器预览重建的实现仍保留其上游权利与许可状态。完整说明见 [NOTICE](NOTICE.md) 与 [资产来源](skills/rea-ui/assets/catalog/NOTICE.md)。

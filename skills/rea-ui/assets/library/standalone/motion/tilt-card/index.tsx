@@ -101,7 +101,7 @@ function Runtime(): RecoveredValue {
         <div className={`tilt-card-demo__card`}>
           <div className={`tilt-card-demo__top`}>
             <span className={`tilt-card-demo__brand`}>
-              {`affectUI `}
+              {`rea/ui `}
               <b>{`Pro`}</b>
             </span>
             <svg
