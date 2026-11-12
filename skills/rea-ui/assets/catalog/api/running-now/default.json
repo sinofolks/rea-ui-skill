@@ -1,0 +1,99 @@
+{
+  "slug": "running-now",
+  "name": "RunningNow",
+  "variant": "default",
+  "props": [
+    {
+      "name": "align",
+      "type": "\"start\" | \"end\" | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "start",
+        "end"
+      ]
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "labels",
+      "type": "Partial<RunningNowLabels> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onOpen",
+      "type": "((id: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onOpenAll",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onPause",
+      "type": "((id: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onResume",
+      "type": "((id: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "tasks",
+      "type": "RunningTask[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

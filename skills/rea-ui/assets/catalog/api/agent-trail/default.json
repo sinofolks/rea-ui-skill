@@ -1,0 +1,55 @@
+{
+  "slug": "agent-trail",
+  "name": "AgentTrail",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "expanded",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "labels",
+      "type": "Partial<AgentTrailLabels> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "((ids: string[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "steps",
+      "type": "TrailStep[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

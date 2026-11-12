@@ -1,0 +1,92 @@
+{
+  "slug": "agent-plan",
+  "name": "AgentPlan",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultSteps",
+      "type": "PlanStep[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "estimate",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onCancel",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onChange",
+      "type": "((steps: PlanStep[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRetry",
+      "type": "((stepId: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRun",
+      "type": "((steps: PlanStep[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "status",
+      "type": "\"running\" | \"draft\" | \"done\" | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "running",
+        "draft",
+        "done"
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "PlanStep[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

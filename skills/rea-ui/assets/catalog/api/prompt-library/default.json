@@ -1,0 +1,79 @@
+{
+  "slug": "prompt-library",
+  "name": "PromptLibrary",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onCopy",
+      "type": "((prompt: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSelect",
+      "type": "((id: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onUse",
+      "type": "((prompt: string, template: PromptTemplate, values: Record<string, string>) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "templates",
+      "type": "PromptTemplate[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "useLabel",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "value",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

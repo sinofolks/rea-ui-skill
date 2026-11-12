@@ -1,0 +1,55 @@
+{
+  "slug": "profile-menu",
+  "name": "ProfileMenu",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "avatar",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Replaces the default avatar",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "items",
+      "type": "ProfileMenuItem[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "setup",
+      "type": "ProfileSetup | undefined",
+      "required": false,
+      "description": "Profile setup progress under the actions – leave empty to hide",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

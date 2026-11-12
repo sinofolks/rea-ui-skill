@@ -1,0 +1,87 @@
+{
+  "slug": "agent-lanes",
+  "name": "AgentLanes",
+  "variant": "default",
+  "props": [
+    {
+      "name": "agents",
+      "type": "LaneAgent[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "highlight",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "now",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "onApprove",
+      "type": "((task: LaneTask) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onOpen",
+      "type": "((task: LaneTask) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onReject",
+      "type": "((task: LaneTask) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "span",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "tasks",
+      "type": "LaneTask[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "slug": "away-summary",
+  "name": "AwaySummary",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "collapsed",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "defaultCollapsed",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "items",
+      "type": "AwayItem[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "labels",
+      "type": "Partial<AwaySummaryLabels> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "limit",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "locale",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "now",
+      "type": "number | Date | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onAction",
+      "type": "((id: string, item: AwayItem) => void | Promise<void>) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onCollapsedChange",
+      "type": "((collapsed: boolean) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onDismiss",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "since",
+      "type": "string | number | Date | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "timeStyle",
+      "type": "\"duration\" | \"clock\" | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "duration",
+        "clock"
+      ]
+    }
+  ]
+}

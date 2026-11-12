@@ -1,0 +1,617 @@
+.ui-lmc {
+  --ui-lmc-focus: rgba(0, 96, 226, 0.7);
+  --ui-lmc-h: 24px;
+  --ui-lmc-g: var(--ui-lmc-gap, 56px);
+  --ui-lmc-row-gap: 24px;
+  --ui-lmc-fade: min(20%, 168px);
+  --ui-lmc-muted: rgba(0, 0, 0, 0.36);
+  --ui-lmc-ink: rgba(0, 0, 0, 0.88);
+  --ui-lmc-label: rgba(0, 0, 0, 0.45);
+  --ui-lmc-dim: 0.6;
+  --ui-lmc-accent: #0060e2;
+  --ui-lmc-tile: #fff;
+  --ui-lmc-tile-ink: rgba(0, 0, 0, 0.61);
+  --ui-lmc-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-lmc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  container-type: inline-size;
+  display: grid;
+  gap: var(--ui-lmc-row-gap);
+  width: 100%;
+  min-width: 0;
+  font-family:
+    "Inter",
+    "InterVariable",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+.ui-lmc *,
+.ui-lmc *::before,
+.ui-lmc *::after {
+  box-sizing: border-box;
+}
+/* Narrow containers (phones): smaller logos, tighter gaps */
+@container (max-width: 520px) {
+  .ui-lmc__row,
+  .ui-lmc__wrap {
+    --ui-lmc-h: 20px;
+    --ui-lmc-g: calc(var(--ui-lmc-gap, 56px) * 0.62);
+  }
+  .ui-lmc {
+    --ui-lmc-row-gap: 20px;
+  }
+}
+
+.ui-lmc__row {
+  overflow: hidden;
+  /* Vertical page scroll stays native; horizontal swipes scrub the strip */
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  /* A long, eased fade – the marks dissolve into the white instead of hitting an edge */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) calc(var(--ui-lmc-fade) * 0.4),
+    #000 var(--ui-lmc-fade),
+    #000 calc(100% - var(--ui-lmc-fade)),
+    rgba(0, 0, 0, 0.35) calc(100% - var(--ui-lmc-fade) * 0.4),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) calc(var(--ui-lmc-fade) * 0.4),
+    #000 var(--ui-lmc-fade),
+    #000 calc(100% - var(--ui-lmc-fade)),
+    rgba(0, 0, 0, 0.35) calc(100% - var(--ui-lmc-fade) * 0.4),
+    transparent 100%
+  );
+  /* Room for focus rings so they aren't clipped */
+  padding-block: 8px;
+}
+.ui-lmc__row[data-dragging] {
+  cursor: grabbing;
+}
+.ui-lmc__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.ui-lmc__set,
+.ui-lmc__wrap {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-lmc__set {
+  flex: none;
+}
+/* Every logo carries its gap on the right, so one set's width is exactly the wrap distance */
+.ui-lmc__item {
+  flex: none;
+  margin-inline-end: var(--ui-lmc-g);
+}
+
+.ui-lmc__link {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--ui-lmc-h) * 0.36);
+  border-radius: 6px;
+  color: var(--ui-lmc-muted);
+  text-decoration: none;
+  transition:
+    color 240ms var(--ui-lmc-ease),
+    opacity 240ms var(--ui-lmc-ease);
+  -webkit-user-drag: none;
+}
+.ui-lmc[data-labels="below"] .ui-lmc__link {
+  flex-direction: column;
+  gap: 8px;
+}
+.ui-lmc:focus-visible {
+  outline: 2px solid var(--ui-lmc-focus);
+  outline-offset: -2px;
+}
+.ui-lmc__link:focus-visible {
+  outline: 2px solid var(--ui-lmc-focus);
+  outline-offset: 2px;
+}
+
+/* Consistent optical height: every mark fills the same box, nudged by its own scale */
+.ui-lmc__mark {
+  display: grid;
+  place-items: center;
+  height: var(--ui-lmc-h);
+  transition: color 240ms var(--ui-lmc-ease);
+}
+.ui-lmc__mark > svg,
+.ui-lmc__mark > img {
+  display: block;
+  height: calc(var(--ui-lmc-h) * var(--ui-lmc-scale, 1));
+  width: auto;
+  max-width: calc(var(--ui-lmc-h) * 5);
+  pointer-events: none;
+}
+.ui-lmc__name {
+  /* A long company name ends in an ellipsis; the full name is in the title */
+  max-width: calc(var(--ui-lmc-h) * 9);
+  overflow: hidden;
+  font-size: calc(var(--ui-lmc-h) * 0.66);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* A logo without artwork: a small white tile with a hairline shadow and its first letter */
+.ui-lmc__tile {
+  display: grid;
+  place-items: center;
+  width: var(--ui-lmc-h);
+  height: var(--ui-lmc-h);
+  border-radius: 6px;
+  background: var(--ui-lmc-tile);
+  box-shadow: var(--ui-lmc-shadow);
+  color: var(--ui-lmc-tile-ink);
+  font-size: calc(var(--ui-lmc-h) * 0.5);
+  font-weight: 500;
+  line-height: 1;
+}
+.ui-lmc[data-labels="below"] .ui-lmc__name {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: var(--ui-lmc-label);
+}
+.ui-lmc__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Grayscale: quiet gray marks, images without colour – the hovered logo lifts to its brand colour */
+.ui-lmc[data-grayscale] .ui-lmc__mark > img {
+  filter: grayscale(1);
+  opacity: 0.5;
+  transition:
+    filter 240ms var(--ui-lmc-ease),
+    opacity 240ms var(--ui-lmc-ease);
+}
+.ui-lmc:not([data-grayscale]) .ui-lmc__mark {
+  color: var(--ui-lmc-brand, var(--ui-lmc-ink));
+}
+.ui-lmc:not([data-grayscale]) .ui-lmc__link {
+  color: var(--ui-lmc-ink);
+}
+@media (hover: hover) {
+  .ui-lmc__link:hover,
+  .ui-lmc__link:focus-visible {
+    color: var(--ui-lmc-ink);
+  }
+  .ui-lmc[data-grayscale] .ui-lmc__link:hover .ui-lmc__mark,
+  .ui-lmc[data-grayscale] .ui-lmc__link:focus-visible .ui-lmc__mark {
+    color: var(--ui-lmc-brand, var(--ui-lmc-ink));
+  }
+  .ui-lmc[data-grayscale] .ui-lmc__link:hover img {
+    filter: none;
+    opacity: 1;
+  }
+  /* Full colour: the others step back while one is hovered */
+  .ui-lmc:not([data-grayscale])
+    .ui-lmc__set:has(.ui-lmc__link:hover)
+    .ui-lmc__link:not(:hover) {
+    opacity: var(--ui-lmc-dim);
+  }
+  /* No colour flicker under the pointer while scrubbing */
+  .ui-lmc[data-grayscale] .ui-lmc__row[data-dragging] .ui-lmc__link {
+    color: var(--ui-lmc-muted);
+  }
+  .ui-lmc[data-grayscale] .ui-lmc__row[data-dragging] .ui-lmc__mark {
+    color: inherit;
+  }
+}
+
+/* Reduced motion: a static, centred, wrapping row */
+.ui-lmc__wrap {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: calc(var(--ui-lmc-g) * 0.5);
+  padding: 8px 16px;
+}
+.ui-lmc__wrap .ui-lmc__item {
+  margin-inline: calc(var(--ui-lmc-g) * 0.5);
+}
+
+@media (pointer: coarse) {
+  /* Bigger touch targets for linked logos */
+  a.ui-lmc__link {
+    min-height: 44px;
+    padding-inline: 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-lmc__link,
+  .ui-lmc__mark,
+  .ui-lmc__mark > img {
+    transition: none;
+  }
+}
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-lmc {
+  --ui-lmc-focus: rgba(77, 141, 255, 0.8);
+  --ui-lmc-muted: rgba(255, 255, 255, 0.4);
+  --ui-lmc-ink: rgba(255, 255, 255, 0.88);
+  --ui-lmc-label: rgba(255, 255, 255, 0.45);
+  --ui-lmc-accent: #5b9aff;
+  --ui-lmc-tile: #1c1c1e;
+  --ui-lmc-tile-ink: rgba(255, 255, 255, 0.61);
+  --ui-lmc-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ui-lmc {
+  --ui-lmc-focus: rgba(0, 96, 226, 0.7);
+  --ui-lmc-h: 24px;
+  --ui-lmc-g: var(--ui-lmc-gap, 56px);
+  --ui-lmc-row-gap: 24px;
+  --ui-lmc-fade: min(20%, 168px);
+  --ui-lmc-muted: rgba(0, 0, 0, 0.36);
+  --ui-lmc-ink: rgba(0, 0, 0, 0.88);
+  --ui-lmc-label: rgba(0, 0, 0, 0.45);
+  --ui-lmc-dim: 0.6;
+  --ui-lmc-accent: #0070d6;
+  --ui-lmc-tile: #fff;
+  --ui-lmc-tile-ink: rgba(0, 0, 0, 0.61);
+  --ui-lmc-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-lmc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  container-type: inline-size;
+  display: grid;
+  gap: var(--ui-lmc-row-gap);
+  width: 100%;
+  min-width: 0;
+  font-family:
+    "Inter",
+    "InterVariable",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+.ui-lmc *,
+.ui-lmc *::before,
+.ui-lmc *::after {
+  box-sizing: border-box;
+}
+/* Narrow containers (phones): smaller logos, tighter gaps */
+@container (max-width: 520px) {
+  .ui-lmc__row,
+  .ui-lmc__wrap {
+    --ui-lmc-h: 20px;
+    --ui-lmc-g: calc(var(--ui-lmc-gap, 56px) * 0.62);
+  }
+  .ui-lmc {
+    --ui-lmc-row-gap: 20px;
+  }
+}
+
+.ui-lmc__row {
+  overflow: hidden;
+  /* Vertical page scroll stays native; horizontal swipes scrub the strip */
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  /* A long, eased fade – the marks dissolve into the white instead of hitting an edge */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) calc(var(--ui-lmc-fade) * 0.4),
+    #000 var(--ui-lmc-fade),
+    #000 calc(100% - var(--ui-lmc-fade)),
+    rgba(0, 0, 0, 0.35) calc(100% - var(--ui-lmc-fade) * 0.4),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) calc(var(--ui-lmc-fade) * 0.4),
+    #000 var(--ui-lmc-fade),
+    #000 calc(100% - var(--ui-lmc-fade)),
+    rgba(0, 0, 0, 0.35) calc(100% - var(--ui-lmc-fade) * 0.4),
+    transparent 100%
+  );
+  /* Room for focus rings so they aren't clipped */
+  padding-block: 8px;
+}
+.ui-lmc__row[data-dragging] {
+  cursor: grabbing;
+}
+.ui-lmc__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.ui-lmc__set,
+.ui-lmc__wrap {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-lmc__set {
+  flex: none;
+}
+/* Every logo carries its gap on the right, so one set's width is exactly the wrap distance */
+.ui-lmc__item {
+  flex: none;
+  margin-inline-end: var(--ui-lmc-g);
+}
+
+.ui-lmc__link {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--ui-lmc-h) * 0.36);
+  border-radius: 6px;
+  color: var(--ui-lmc-muted);
+  text-decoration: none;
+  transition:
+    color 240ms var(--ui-lmc-ease),
+    opacity 240ms var(--ui-lmc-ease);
+  -webkit-user-drag: none;
+}
+.ui-lmc[data-labels="below"] .ui-lmc__link {
+  flex-direction: column;
+  gap: 8px;
+}
+.ui-lmc:focus-visible {
+  outline: 2px solid var(--ui-lmc-focus);
+  outline-offset: -2px;
+}
+.ui-lmc__link:focus-visible {
+  outline: 2px solid var(--ui-lmc-focus);
+  outline-offset: 2px;
+}
+
+/* Consistent optical height: every mark fills the same box, nudged by its own scale */
+.ui-lmc__mark {
+  display: grid;
+  place-items: center;
+  height: var(--ui-lmc-h);
+  transition: color 240ms var(--ui-lmc-ease);
+}
+.ui-lmc__mark > svg,
+.ui-lmc__mark > img {
+  display: block;
+  height: calc(var(--ui-lmc-h) * var(--ui-lmc-scale, 1));
+  width: auto;
+  max-width: calc(var(--ui-lmc-h) * 5);
+  pointer-events: none;
+}
+.ui-lmc__name {
+  /* A long company name ends in an ellipsis; the full name is in the title */
+  max-width: calc(var(--ui-lmc-h) * 9);
+  overflow: hidden;
+  font-size: calc(var(--ui-lmc-h) * 0.66);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* A logo without artwork: a small white tile with a hairline shadow and its first letter */
+.ui-lmc__tile {
+  display: grid;
+  place-items: center;
+  width: var(--ui-lmc-h);
+  height: var(--ui-lmc-h);
+  border-radius: 6px;
+  background: var(--ui-lmc-tile);
+  box-shadow: var(--ui-lmc-shadow);
+  color: var(--ui-lmc-tile-ink);
+  font-size: calc(var(--ui-lmc-h) * 0.5);
+  font-weight: 500;
+  line-height: 1;
+}
+.ui-lmc[data-labels="below"] .ui-lmc__name {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: var(--ui-lmc-label);
+}
+.ui-lmc__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Grayscale: quiet gray marks, images without colour – the hovered logo lifts to its brand colour */
+.ui-lmc[data-grayscale] .ui-lmc__mark > img {
+  filter: grayscale(1);
+  opacity: 0.5;
+  transition:
+    filter 240ms var(--ui-lmc-ease),
+    opacity 240ms var(--ui-lmc-ease);
+}
+.ui-lmc:not([data-grayscale]) .ui-lmc__mark {
+  color: var(--ui-lmc-brand, var(--ui-lmc-ink));
+}
+.ui-lmc:not([data-grayscale]) .ui-lmc__link {
+  color: var(--ui-lmc-ink);
+}
+@media (hover: hover) {
+  .ui-lmc__link:hover,
+  .ui-lmc__link:focus-visible {
+    color: var(--ui-lmc-ink);
+  }
+  .ui-lmc[data-grayscale] .ui-lmc__link:hover .ui-lmc__mark,
+  .ui-lmc[data-grayscale] .ui-lmc__link:focus-visible .ui-lmc__mark {
+    color: var(--ui-lmc-brand, var(--ui-lmc-ink));
+  }
+  .ui-lmc[data-grayscale] .ui-lmc__link:hover img {
+    filter: none;
+    opacity: 1;
+  }
+  /* Full colour: the others step back while one is hovered */
+  .ui-lmc:not([data-grayscale])
+    .ui-lmc__set:has(.ui-lmc__link:hover)
+    .ui-lmc__link:not(:hover) {
+    opacity: var(--ui-lmc-dim);
+  }
+  /* No colour flicker under the pointer while scrubbing */
+  .ui-lmc[data-grayscale] .ui-lmc__row[data-dragging] .ui-lmc__link {
+    color: var(--ui-lmc-muted);
+  }
+  .ui-lmc[data-grayscale] .ui-lmc__row[data-dragging] .ui-lmc__mark {
+    color: inherit;
+  }
+}
+
+/* Reduced motion: a static, centred, wrapping row */
+.ui-lmc__wrap {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: calc(var(--ui-lmc-g) * 0.5);
+  padding: 8px 16px;
+}
+.ui-lmc__wrap .ui-lmc__item {
+  margin-inline: calc(var(--ui-lmc-g) * 0.5);
+}
+
+@media (pointer: coarse) {
+  /* Bigger touch targets for linked logos */
+  a.ui-lmc__link {
+    min-height: 44px;
+    padding-inline: 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-lmc__link,
+  .ui-lmc__mark,
+  .ui-lmc__mark > img {
+    transition: none;
+  }
+}
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-lmc {
+  --ui-lmc-focus: rgba(77, 141, 255, 0.8);
+  --ui-lmc-muted: rgba(255, 255, 255, 0.4);
+  --ui-lmc-ink: rgba(255, 255, 255, 0.88);
+  --ui-lmc-label: rgba(255, 255, 255, 0.45);
+  --ui-lmc-accent: #4fb0fe;
+  --ui-lmc-tile: #1c1c1e;
+  --ui-lmc-tile-ink: rgba(255, 255, 255, 0.61);
+  --ui-lmc-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.logo-marquee-demo {
+  -webkit-font-smoothing: antialiased;
+  justify-items: center;
+  gap: 22px;
+  width: 100%;
+  min-width: 0;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  display: grid;
+}
+.logo-marquee-demo__caption {
+  color: #8f8f8f;
+  text-align: center;
+  margin: 0;
+  padding-inline: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  animation: 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both logo-marquee-demo-in;
+}
+@keyframes logo-marquee-demo-in {
+  0% {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateY(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-demo__caption {
+    animation: none;
+  }
+}
+:where(.dark, [data-theme="dark"]) .logo-marquee-demo__caption {
+  color: #8b8b92;
+}
+.card__preview .logo-marquee-demo {
+  zoom: 0.9;
+  align-content: center;
+  gap: 16px;
+  padding-top: 24px;
+  position: absolute;
+  inset: 0;
+}
+.stage:has(.logo-marquee-demo) {
+  height: 420px;
+  padding-inline: 0;
+}
+@media (width<=760px) {
+  .stage:has(.logo-marquee-demo) {
+    height: 360px;
+    min-height: 0;
+    padding: 52px 0 24px;
+  }
+}
+.logo-marquee-demo--clean {
+  gap: 24px;
+}
+.logo-marquee-demo--clean .logo-marquee-demo__caption {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #00000073;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
+:where(.dark, [data-theme="dark"])
+  .logo-marquee-demo--clean
+  .logo-marquee-demo__caption {
+  color: #ffffff73;
+}
+.card__preview .logo-marquee-demo--clean {
+  gap: 18px;
+}

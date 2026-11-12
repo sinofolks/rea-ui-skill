@@ -1,0 +1,148 @@
+{
+  "slug": "select",
+  "name": "Select",
+  "variant": "default",
+  "props": [
+    {
+      "name": "aria-label",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultValue",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "error",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Marks the field invalid and shows this under it, in place of the hint",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "hint",
+      "type": "ReactNode",
+      "required": false,
+      "description": "A quiet line under the field – the error takes its place while there is one",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "id",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown above the field and tied to it",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "name",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Sends the value with a form, through a hidden input",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onChange",
+      "type": "((value: string, option: SelectOption) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "optional",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "\"Optional\" next to the label",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "options",
+      "type": "SelectOption[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Shown while nothing is chosen",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "ref",
+      "type": "Ref<HTMLButtonElement> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "required",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "description": "sm 28 · md 32 · lg 36 high",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    {
+      "name": "value",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "The chosen value – makes it controlled",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

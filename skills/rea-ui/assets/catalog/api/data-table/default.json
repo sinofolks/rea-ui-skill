@@ -1,0 +1,79 @@
+{
+  "slug": "data-table",
+  "name": "DataTable",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "columns",
+      "type": "DataTableColumn<Row>[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "editable",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRowsChange",
+      "type": "((rows: Row[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSelectionChange",
+      "type": "((ids: Row[\"id\"][]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "rows",
+      "type": "Row[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "tagTones",
+      "type": "Record<string, DataTableTone> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "ReactNode",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

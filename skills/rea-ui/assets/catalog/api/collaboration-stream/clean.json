@@ -1,0 +1,119 @@
+{
+  "slug": "collaboration-stream",
+  "name": "CollaborationStream",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "agents",
+      "type": "StreamAgent[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "focusAgent",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "live",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "logos",
+      "type": "Record<string, ReactNode> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "maxHeight",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "messages",
+      "type": "StreamMessage[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onFocusAgentChange",
+      "type": "((id: string | null) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSelectedChange",
+      "type": "((id: string | null) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSend",
+      "type": "((value: { text: string; to: string[]; replyTo?: string; }) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "selected",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "task",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

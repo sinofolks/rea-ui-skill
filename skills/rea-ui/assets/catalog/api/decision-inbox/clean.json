@@ -1,0 +1,31 @@
+{
+  "slug": "decision-inbox",
+  "name": "DecisionInbox",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "decisions",
+      "type": "Decision[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onDecide",
+      "type": "((decision: Decision, answer: \"primary\" | \"secondary\") => void) | undefined",
+      "required": false,
+      "description": "Called with the decision and the chosen answer",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

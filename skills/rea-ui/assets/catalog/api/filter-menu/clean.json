@@ -1,0 +1,71 @@
+{
+  "slug": "filter-menu",
+  "name": "FilterMenu",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "Groups that start open – by default the first one",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "defaultValue",
+      "type": "FilterValue | undefined",
+      "required": false,
+      "description": "Starting value when uncontrolled",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "groups",
+      "type": "FilterGroup[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "hints",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Show the keyboard hints as the last row of the card",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "onChange",
+      "type": "((value: FilterValue) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "value",
+      "type": "FilterValue | undefined",
+      "required": false,
+      "description": "Controlled value",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

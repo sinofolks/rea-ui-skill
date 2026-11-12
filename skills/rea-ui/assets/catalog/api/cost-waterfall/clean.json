@@ -1,0 +1,148 @@
+{
+  "slug": "cost-waterfall",
+  "name": "CostWaterfall",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "collapsed",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "defaultCollapsed",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "defaultMode",
+      "type": "CostMode | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "cost",
+        "tokens"
+      ]
+    },
+    {
+      "name": "defaultOpenId",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "formatCost",
+      "type": "((amount: number) => string) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "maxHeight",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "mode",
+      "type": "CostMode | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "cost",
+        "tokens"
+      ]
+    },
+    {
+      "name": "onCollapsedChange",
+      "type": "((collapsed: string[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onModeChange",
+      "type": "((mode: CostMode) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onOpenChange",
+      "type": "((id: string | null, step?: CostStep) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "openId",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "status",
+      "type": "CostStatus | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "running",
+        "failed",
+        "done"
+      ]
+    },
+    {
+      "name": "steps",
+      "type": "CostStep[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "task",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

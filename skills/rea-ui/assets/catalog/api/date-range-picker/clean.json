@@ -1,0 +1,108 @@
+{
+  "slug": "date-range-picker",
+  "name": "DateRangePicker",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "compare",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "defaultCompare",
+      "type": "DateRangeCompare | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "off",
+        "previous",
+        "year"
+      ]
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "defaultValue",
+      "type": "DateRange | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "max",
+      "type": "Date | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "min",
+      "type": "Date | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onChange",
+      "type": "((range: DateRange, comparison: DateRange | null, mode: DateRangeCompare) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "presets",
+      "type": "DateRangePreset[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "today",
+      "type": "Date | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "value",
+      "type": "DateRange | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "0 | 1 | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "reaction-bar",
+  "name": "ReactionBar",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "actions",
+      "type": "ReactionKey[] | undefined",
+      "required": false,
+      "description": "Hide actions you don't need",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onReact",
+      "type": "((key: ReactionKey, state: Required<ReactionState>) => void) | undefined",
+      "required": false,
+      "description": "Called after an action was toggled, with its new state",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "reactions",
+      "type": "Partial<Record<ReactionKey, ReactionState>> | undefined",
+      "required": false,
+      "description": "Starting counts and whether each action is already taken",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

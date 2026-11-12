@@ -1,0 +1,31 @@
+{
+  "slug": "notification-stack",
+  "name": "NotificationStack",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "notices",
+      "type": "Notice[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onDismiss",
+      "type": "((notice: Notice) => void) | undefined",
+      "required": false,
+      "description": "Called after a notice was dismissed",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

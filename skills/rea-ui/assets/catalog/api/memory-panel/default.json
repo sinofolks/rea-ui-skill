@@ -1,0 +1,143 @@
+{
+  "slug": "memory-panel",
+  "name": "MemoryPanel",
+  "variant": "default",
+  "props": [
+    {
+      "name": "action",
+      "type": "{ label: string; onClick: () => void; } | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "addedSource",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "categories",
+      "type": "string[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultEnabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "enabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "maxHeight",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "memories",
+      "type": "Memory[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onAdd",
+      "type": "((memory: Memory) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onChange",
+      "type": "((memories: Memory[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onEdit",
+      "type": "((id: string, text: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onEnabledChange",
+      "type": "((enabled: boolean) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onForget",
+      "type": "((id: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onPause",
+      "type": "((id: string, paused: boolean) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRestore",
+      "type": "((memory: Memory) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "undoFor",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    }
+  ]
+}

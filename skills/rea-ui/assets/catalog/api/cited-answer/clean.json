@@ -1,0 +1,71 @@
+{
+  "slug": "cited-answer",
+  "name": "CitedAnswer",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "action",
+      "type": "{ label: string; onClick: () => void; } | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onOpenSource",
+      "type": "((source: CitedSource) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onPreviewChange",
+      "type": "((id: string | null) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "pagesRead",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "segments",
+      "type": "CitedSegment[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "sources",
+      "type": "CitedSource[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+.ui-twc {
+  --ui-twc-card: #ffffff;
+  --ui-twc-title: #000000;
+  --ui-twc-text: rgba(0, 0, 0, 0.88);
+  --ui-twc-muted: rgba(0, 0, 0, 0.45);
+  --ui-twc-faint: rgba(0, 0, 0, 0.27);
+  --ui-twc-star: rgba(0, 0, 0, 0.36);
+  --ui-twc-star-off: rgba(0, 0, 0, 0.08);
+  --ui-twc-initials: #f5f5f5;
+  --ui-twc-initials-ink: rgba(0, 0, 0, 0.45);
+  --ui-twc-ring: rgba(0, 0, 0, 0.06);
+  --ui-twc-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-twc-lift:
+    0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 12px 24px -12px rgba(0, 0, 0, 0.12);
+  --ui-twc-focus: rgba(0, 96, 226, 0.7);
+  --ui-twc-gap: 16px;
+  --ui-twc-fade: 120px;
+  --ui-twc-dim: 0.6;
+  --ui-twc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: repeat(var(--ui-twc-cols, 3), minmax(0, 1fr));
+  /* One row exactly as tall as the wall, so a column's height never follows its (repeated) content */
+  grid-template-rows: minmax(0, 1fr);
+  gap: var(--ui-twc-gap);
+  width: 100%;
+  min-width: 0;
+  height: var(--ui-twc-height, 600px);
+  /* Room at the sides for the lifted card's shadow and the focus ring; the wall clips everything else */
+  padding-inline: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* A long, eased fade – the cards dissolve into the white instead of hitting an edge */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) calc(var(--ui-twc-fade) * 0.4),
+    #000 var(--ui-twc-fade),
+    #000 calc(100% - var(--ui-twc-fade)),
+    rgba(0, 0, 0, 0.35) calc(100% - var(--ui-twc-fade) * 0.4),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) calc(var(--ui-twc-fade) * 0.4),
+    #000 var(--ui-twc-fade),
+    #000 calc(100% - var(--ui-twc-fade)),
+    rgba(0, 0, 0, 0.35) calc(100% - var(--ui-twc-fade) * 0.4),
+    transparent 100%
+  );
+  font-family:
+    "Inter",
+    "InterVariable",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+:where(.ui-twc) *,
+:where(.ui-twc) *::before,
+:where(.ui-twc) *::after {
+  box-sizing: border-box;
+}
+
+.ui-twc[data-empty] {
+  display: grid;
+  place-items: center;
+  height: auto;
+  min-height: 160px;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.ui-twc .ui-twc__empty {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ui-twc-muted);
+}
+
+.ui-twc__col {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.ui-twc__col[data-dragging] {
+  cursor: grabbing;
+}
+.ui-twc__track {
+  will-change: transform;
+}
+.ui-twc .ui-twc__set {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Every card carries its gap below, so one set's height is exactly the wrap distance */
+.ui-twc .ui-twc__item {
+  margin: 0 0 var(--ui-twc-gap);
+}
+
+.ui-twc .ui-twc__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--ui-twc-card);
+  box-shadow: var(--ui-twc-shadow);
+  color: var(--ui-twc-text);
+  transition:
+    transform 320ms var(--ui-twc-ease),
+    box-shadow 320ms var(--ui-twc-ease),
+    opacity 320ms var(--ui-twc-ease);
+}
+.ui-twc__card:focus {
+  outline: none;
+}
+.ui-twc__card:focus-visible {
+  outline: 2px solid var(--ui-twc-focus);
+  outline-offset: 2px;
+}
+
+/* Stars sit a little closer to the quote they rate */
+.ui-twc .ui-twc__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: -6px;
+}
+.ui-twc__stars svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+  fill: var(--ui-twc-star-off);
+}
+.ui-twc__stars svg[data-on] {
+  fill: var(--ui-twc-star);
+}
+
+.ui-twc .ui-twc__quote {
+  margin: 0;
+}
+.ui-twc .ui-twc__quote p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.084px;
+  color: var(--ui-twc-text);
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  /* Line breaks in a quote are kept; very long quotes stop at ten lines so a card never outgrows the wall */
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  line-clamp: 10;
+  overflow: hidden;
+}
+
+.ui-twc .ui-twc__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+}
+.ui-twc__avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--ui-twc-initials);
+  /* A 0.5px ring keeps light photos from melting into the card */
+  box-shadow: 0 0 0 0.5px var(--ui-twc-ring);
+  pointer-events: none;
+}
+.ui-twc__avatar--initials {
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--ui-twc-initials-ink);
+}
+.ui-twc__id {
+  display: grid;
+  gap: 0;
+  min-width: 0;
+}
+.ui-twc__name {
+  display: flex;
+  /* Top-aligned, so the check stays on the first line when a long name wraps */
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--ui-twc-title);
+}
+/* The name identifies the person: it wraps to a second line (an email-like name breaks anywhere) and only then is cut */
+.ui-twc__name-text {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.ui-twc__verified {
+  flex: none;
+  margin-top: 3px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: var(--ui-twc-faint);
+}
+/* Role and company wrap once at most, then end in an ellipsis */
+.ui-twc__meta {
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ui-twc-muted);
+}
+
+/* Hover: the card under the pointer lifts a little, the rest of the wall steps back */
+@media (hover: hover) {
+  .ui-twc__col:not([data-dragging]) .ui-twc__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ui-twc-lift);
+  }
+  .ui-twc:has(.ui-twc__col:not([data-dragging]) .ui-twc__card:hover)
+    .ui-twc__card:not(:hover) {
+    opacity: var(--ui-twc-dim);
+  }
+}
+/* Keyboard focus gets the same lift */
+.ui-twc .ui-twc__card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--ui-twc-lift);
+}
+
+/* Touch screens: a little more room inside the cards, so a resting finger never covers the text it holds */
+@media (pointer: coarse) {
+  .ui-twc .ui-twc__card {
+    padding: 20px 20px 22px;
+  }
+}
+
+/* Narrow walls (one column on phones): a little less padding, so the quote keeps its width */
+@container (max-width: 479px) {
+  .ui-twc .ui-twc__card {
+    padding: 18px;
+  }
+}
+@container (max-width: 739px) {
+  .ui-twc__col {
+    --ui-twc-gap: 12px;
+  }
+}
+
+/* Reduced motion: a static masonry that shows every quote – no fixed height, no fade */
+.ui-twc[data-static] {
+  height: auto;
+  grid-template-rows: auto;
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.ui-twc[data-static] .ui-twc__col {
+  height: auto;
+  cursor: auto;
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-twc .ui-twc__card {
+    transition: none;
+  }
+}
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-twc {
+  --ui-twc-card: #1c1c1e;
+  --ui-twc-title: #ffffff;
+  --ui-twc-text: rgba(255, 255, 255, 0.88);
+  --ui-twc-muted: rgba(255, 255, 255, 0.45);
+  --ui-twc-faint: rgba(255, 255, 255, 0.27);
+  --ui-twc-star: rgba(255, 255, 255, 0.4);
+  --ui-twc-star-off: rgba(255, 255, 255, 0.1);
+  --ui-twc-initials: #2a2a2d;
+  --ui-twc-initials-ink: rgba(255, 255, 255, 0.45);
+  --ui-twc-ring: rgba(255, 255, 255, 0.08);
+  --ui-twc-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-twc-lift:
+    0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4),
+    0 12px 24px -12px rgba(0, 0, 0, 0.6);
+  --ui-twc-focus: rgba(77, 141, 255, 0.8);
+}
+
+.testimonial-wall-demo {
+  -webkit-font-smoothing: antialiased;
+  justify-items: center;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  max-width: 1000px;
+  margin-inline: auto;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  display: grid;
+}
+.testimonial-wall-demo :is(.ui-tw, .ui-twc) {
+  --ui-tw-height: 580px;
+  --ui-twc-height: 580px;
+}
+.testimonial-wall-demo__head {
+  text-align: center;
+  justify-items: center;
+  gap: 6px;
+  padding-inline: 16px;
+  animation: 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both
+    testimonial-wall-demo-in;
+  display: grid;
+}
+.testimonial-wall-demo__eyebrow {
+  color: #8f8f8f;
+  margin: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.testimonial-wall-demo__title {
+  letter-spacing: -0.025em;
+  color: #171717;
+  text-wrap: balance;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+@keyframes testimonial-wall-demo-in {
+  0% {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateY(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-wall-demo__head {
+    animation: none;
+  }
+}
+:where(.dark, [data-theme="dark"]) .testimonial-wall-demo__eyebrow {
+  color: #8b8b92;
+}
+:where(.dark, [data-theme="dark"]) .testimonial-wall-demo__title {
+  color: #ededed;
+}
+.card__preview .testimonial-wall-demo {
+  box-sizing: border-box;
+  transform-origin: 0 0;
+  flex-direction: column;
+  width: 263.158%;
+  max-width: none;
+  height: 263.158%;
+  padding: 95px 30px 0;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0.38);
+}
+.card__preview .testimonial-wall-demo__head {
+  display: none;
+}
+.card__preview .testimonial-wall-demo :is(.ui-tw, .ui-twc) {
+  --ui-tw-fade: 110px;
+  --ui-twc-fade: 120px;
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+.stage:has(.testimonial-wall-demo) {
+  height: 760px;
+  padding: 48px 32px 32px;
+}
+@media (width<=760px) {
+  .stage:has(.testimonial-wall-demo) {
+    height: 720px;
+    min-height: 0;
+    padding: 56px 12px 16px;
+  }
+  .testimonial-wall-demo {
+    gap: 18px;
+  }
+  .testimonial-wall-demo :is(.ui-tw, .ui-twc) {
+    --ui-tw-height: 540px;
+    --ui-twc-height: 540px;
+  }
+  .testimonial-wall-demo__head {
+    padding-inline: 48px;
+  }
+  .testimonial-wall-demo__title {
+    font-size: 22px;
+  }
+}
+.testimonial-wall-demo--clean .testimonial-wall-demo__eyebrow {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #00000073;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.testimonial-wall-demo--clean .testimonial-wall-demo__title {
+  letter-spacing: -0.24px;
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+:where(.dark, [data-theme="dark"])
+  .testimonial-wall-demo--clean
+  .testimonial-wall-demo__eyebrow {
+  color: #ffffff73;
+}
+:where(.dark, [data-theme="dark"])
+  .testimonial-wall-demo--clean
+  .testimonial-wall-demo__title {
+  color: #fff;
+}
+@media (width<=760px) {
+  .testimonial-wall-demo--clean .testimonial-wall-demo__title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}

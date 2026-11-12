@@ -1,0 +1,55 @@
+{
+  "slug": "command-menu",
+  "name": "CommandMenu",
+  "variant": "default",
+  "props": [
+    {
+      "name": "autoFocus",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "groups",
+      "type": "CommandGroup[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onClose",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRun",
+      "type": "((id: string, query?: string) => void) | undefined",
+      "required": false,
+      "description": "For the generated ask command, id is \"ask\" and query is the search text.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

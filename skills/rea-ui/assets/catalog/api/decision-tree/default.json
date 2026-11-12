@@ -1,0 +1,55 @@
+{
+  "slug": "decision-tree",
+  "name": "DecisionTree",
+  "variant": "default",
+  "props": [
+    {
+      "name": "allowOther",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "decisions",
+      "type": "Decision[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onChoose",
+      "type": "((decision: Decision, choice: DecisionChoice) => string | void | Promise<string | void>) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "ref",
+      "type": "Ref<DecisionTreeHandle> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

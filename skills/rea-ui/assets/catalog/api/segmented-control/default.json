@@ -1,0 +1,116 @@
+{
+  "slug": "segmented-control",
+  "name": "SegmentedControl",
+  "variant": "default",
+  "props": [
+    {
+      "name": "aria-label",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "aria-labelledby",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultValue",
+      "type": "T | undefined",
+      "required": false,
+      "description": "Starting value when uncontrolled – defaults to the first enabled option",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Fill the container with equal segments",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "kind",
+      "type": "\"radio\" | \"tabs\" | undefined",
+      "required": false,
+      "description": "\"radio\" (a radiogroup, the default) or \"tabs\" (a tablist that switches panels)",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "radio",
+        "tabs"
+      ]
+    },
+    {
+      "name": "onChange",
+      "type": "((value: T) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "options",
+      "type": "SegmentOption<T>[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\" | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    {
+      "name": "value",
+      "type": "T | undefined",
+      "required": false,
+      "description": "Controlled value",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "variant",
+      "type": "\"tray\" | \"underline\" | undefined",
+      "required": false,
+      "description": "\"tray\" = gray track with a raised pill, \"underline\" = text tabs with a sliding line",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "tray",
+        "underline"
+      ]
+    }
+  ]
+}

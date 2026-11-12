@@ -1,0 +1,161 @@
+{
+  "slug": "otp-input",
+  "name": "OtpInput",
+  "variant": "default",
+  "props": [
+    {
+      "name": "align",
+      "type": "\"center\" | \"start\" | undefined",
+      "required": false,
+      "description": "Center the boxes and the lines below them",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "center",
+        "start"
+      ]
+    },
+    {
+      "name": "autoFocus",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "clearOnError",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Clears the boxes shortly after an error, ready for the next try",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "defaultValue",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Starting code when uncontrolled",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "errorMessage",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Shown below the boxes while `status` is \"error\"",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Accessible name of the field",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "length",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Number of boxes",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "numeric",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Digits only (numeric keyboard on phones); `false` allows letters too, shown in capitals",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "onChange",
+      "type": "((code: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onComplete",
+      "type": "((code: string) => void) | undefined",
+      "required": false,
+      "description": "Called once the last box is filled – typed, pasted or autofilled",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onResend",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "Shows \"Resend code\" below the boxes once the countdown is over",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "resendIn",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Seconds until the code can be resent",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "separator",
+      "type": "number | boolean | undefined",
+      "required": false,
+      "description": "A small dash between the boxes – `true` puts it in the middle, a number after that many boxes",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "status",
+      "type": "OtpStatus | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "idle",
+        "verifying",
+        "error",
+        "success"
+      ]
+    },
+    {
+      "name": "successLabel",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Text in the pill after a successful check",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "value",
+      "type": "string | undefined",
+      "required": false,
+      "description": "The code – makes it controlled",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

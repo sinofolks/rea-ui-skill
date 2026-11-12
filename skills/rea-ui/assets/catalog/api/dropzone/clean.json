@@ -1,0 +1,63 @@
+{
+  "slug": "dropzone",
+  "name": "Dropzone",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "accept",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "File extensions, with or without a leading dot.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "autoplay",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "hint",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "maxSize",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Maximum size of each file, in bytes.",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "onChange",
+      "type": "((items: DropzoneItem[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onUpload",
+      "type": "((file: File, onProgress: (fraction: number) => void) => Promise<unknown>) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

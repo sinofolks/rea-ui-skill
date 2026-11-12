@@ -1,0 +1,103 @@
+{
+  "slug": "email-draft",
+  "name": "EmailDraft",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "account",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Account or company under the reference",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "agent",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Who wrote the draft",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "amount",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Amount shown on the right",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "attachment",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "contacts",
+      "type": "DraftContact[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "link",
+      "type": "{ label: string; href: string; } | undefined",
+      "required": false,
+      "description": "Label and target of the link appended to the email",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onDiscard",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSend",
+      "type": "((email: { to: DraftContact; body: string; attachment: string | null; }) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "reference",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Reference of the record, e.g. a subscription or invoice number",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "status",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Status chip next to the reference",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "tones",
+      "type": "DraftTone[] | undefined",
+      "required": false,
+      "description": "Text variants to switch between – the first one is shown first",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

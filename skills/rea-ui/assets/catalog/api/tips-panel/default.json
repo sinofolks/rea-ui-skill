@@ -1,0 +1,47 @@
+{
+  "slug": "tips-panel",
+  "name": "TipsPanel",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "closeLabel",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onClose",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "Shows the Close button in the footer",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "tips",
+      "type": "Tip[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

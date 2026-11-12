@@ -1,0 +1,87 @@
+{
+  "slug": "thinking-loader",
+  "name": "ThinkingLoader",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "done",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Finished: the spinner turns into a check and the label into doneLabel",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "doneLabel",
+      "type": "string | ((seconds: number) => string) | undefined",
+      "required": false,
+      "description": "Label once done – a string, or a function that gets the seconds since the loader started",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "interval",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Time per phase, in ms",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "loop",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Start over after the last phase instead of holding it",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "phase",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Show a specific phase instead of advancing on a timer – e.g. from your stream events",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "phases",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "Labels to walk through, one after another",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "sm",
+        "md"
+      ]
+    },
+    {
+      "name": "variant",
+      "type": "\"plain\" | \"pill\" | undefined",
+      "required": false,
+      "description": "\"pill\" = bordered capsule, \"plain\" = just the spinner and the label, e.g. inside a chat bubble",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "plain",
+        "pill"
+      ]
+    }
+  ]
+}

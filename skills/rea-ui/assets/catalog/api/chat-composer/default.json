@@ -1,0 +1,164 @@
+{
+  "slug": "chat-composer",
+  "name": "ChatComposer",
+  "variant": "default",
+  "props": [
+    {
+      "name": "approval",
+      "type": "ComposerApproval | undefined",
+      "required": false,
+      "description": "Clean only.",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "auto",
+        "ask",
+        "full"
+      ]
+    },
+    {
+      "name": "apps",
+      "type": "ComposerApp[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "connectedApps",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "dictation",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "folder",
+      "type": "string | null | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "folders",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "foot",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Clean only.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "loadMs",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Classic only.",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "models",
+      "type": "ComposerModel[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onApprovalChange",
+      "type": "((approval: ComposerApproval) => void) | undefined",
+      "required": false,
+      "description": "Clean only.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onAppsChange",
+      "type": "((ids: string[]) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onAttach",
+      "type": "((action: MouseEvent<HTMLButtonElement> | string) => void) | undefined",
+      "required": false,
+      "description": "Classic passes the click event. Clean passes an action name.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onFolderChange",
+      "type": "((folder: string | null) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onLearnMore",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "Clean only.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onModelChange",
+      "type": "((model: ComposerModel) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRequestApproval",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "Classic only.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSend",
+      "type": "((text: string, context: { model: string; }) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "placeholder",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "tray",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Clean only.",
+      "inherited": false,
+      "control": "boolean"
+    }
+  ]
+}

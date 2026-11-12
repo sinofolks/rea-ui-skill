@@ -1,0 +1,166 @@
+{
+  "slug": "review-center",
+  "name": "ReviewCenter",
+  "variant": "default",
+  "props": [
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultFilter",
+      "type": "ReviewFilter | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "high",
+        "all",
+        "unsure"
+      ]
+    },
+    {
+      "name": "filter",
+      "type": "ReviewFilter | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "high",
+        "all",
+        "unsure"
+      ]
+    },
+    {
+      "name": "items",
+      "type": "ReviewItem[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "lowConfidence",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "now",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "onCurrentChange",
+      "type": "((item: ReviewItem | undefined) => void) | undefined",
+      "required": false,
+      "description": "Clean style only.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onDecide",
+      "type": "((item: ReviewItem, result: ReviewResult) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onFilterChange",
+      "type": "((filter: ReviewFilter) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onSkip",
+      "type": "((item: ReviewItem) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onUndo",
+      "type": "((item: ReviewItem, result: ReviewResult) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "order",
+      "type": "\"risk\" | \"oldest\" | \"given\" | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "risk",
+        "oldest",
+        "given"
+      ]
+    },
+    {
+      "name": "reasons",
+      "type": "string[] | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "ref",
+      "type": "Ref<ReviewCenterHandle> | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "reviewed",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "sla",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "total",
+      "type": "number | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "number"
+    }
+  ]
+}

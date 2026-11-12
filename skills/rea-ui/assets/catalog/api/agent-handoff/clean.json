@@ -1,0 +1,55 @@
+{
+  "slug": "agent-handoff",
+  "name": "AgentHandoff",
+  "variant": "clean",
+  "props": [
+    {
+      "name": "agents",
+      "type": "HandoffAgent[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "handoffs",
+      "type": "Handoff[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onAssign",
+      "type": "((task: HandoffTask, agent: HandoffAgent) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRestore",
+      "type": "((handoff: Handoff, item: HandoffItem) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "tasks",
+      "type": "HandoffTask[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}

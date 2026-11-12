@@ -1,0 +1,424 @@
+.ui-ack {
+  --ui-ack-tray: #f0f0f0;
+  --ui-ack-card: #ffffff;
+  --ui-ack-strong: #171717;
+  --ui-ack-ink: #171717;
+  --ui-ack-text: #6b6b6b;
+  --ui-ack-muted: #626873;
+  --ui-ack-faint: #6b6b6b;
+  --ui-ack-line: #ececec;
+  --ui-ack-hover: rgba(0, 0, 0, 0.03);
+  --ui-ack-chip: #f5f5f5;
+  --ui-ack-accent: #2a5ee5;
+  --ui-ack-link: #82bcff;
+  --ui-ack-rail: #d6d6d6;
+  --ui-ack-dot: #82bcff;
+  --ui-ack-head: #2f6bff;
+  --ui-ack-failed-bg: #fdecea;
+  --ui-ack-failed-ink: #c2331f;
+  --ui-ack-focus: rgba(0, 96, 226, 0.7);
+  --ui-ack-dim: 0.5;
+  --ui-ack-edge: 0 0 0 1px var(--ui-ack-line), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-ack-row: 32px;
+  --ui-ack-max: 456px;
+  --ui-ack-ease: cubic-bezier(0.32, 0.72, 0.24, 1);
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px;
+  border-radius: 16px;
+  background: var(--ui-ack-tray);
+  container: ui-ack / inline-size;
+  font-family:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.006em;
+  color: var(--ui-ack-text);
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+.ui-ack *,
+.ui-ack *::before,
+.ui-ack *::after {
+  box-sizing: border-box;
+}
+.ui-ack svg {
+  display: block;
+  flex: none;
+}
+.ui-ack__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 10px 10px;
+}
+.ui-ack__mark {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 16px;
+  color: var(--ui-ack-accent);
+}
+.ui-ack__title {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  font-weight: 600;
+  color: var(--ui-ack-strong);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ui-ack__task {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ui-ack-muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ui-ack__sum {
+  flex: none;
+  margin-left: auto;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--ui-ack-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ui-ack__empty {
+  margin: 0;
+  padding: 28px 16px;
+  border-radius: 12px;
+  background: var(--ui-ack-card);
+  box-shadow: var(--ui-ack-edge);
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--ui-ack-muted);
+}
+.ui-ack__list {
+  position: relative;
+  height: calc(var(--ui-ack-rows) * var(--ui-ack-row) + 8px);
+  max-height: var(--ui-ack-max);
+  transition: height 220ms var(--ui-ack-ease);
+  margin: 0;
+  padding: 4px 0;
+  border-radius: 12px;
+  background: var(--ui-ack-card);
+  box-shadow: var(--ui-ack-edge);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  list-style: none;
+  scrollbar-width: thin;
+}
+.ui-ack__list[data-scrolls] {
+  overflow-y: auto;
+}
+.ui-ack__list:focus {
+  outline: none;
+}
+.ui-ack__rail {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+.ui-ack__line {
+  fill: none;
+  stroke: var(--ui-ack-rail);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke 200ms ease;
+  animation: ui-ack-draw 220ms var(--ui-ack-ease) both;
+}
+.ui-ack__line[data-live] {
+  stroke: var(--ui-ack-link);
+}
+.ui-ack__line[data-fork] {
+  animation-duration: 380ms;
+}
+.ui-ack__dot circle {
+  fill: var(--ui-ack-card);
+  stroke: var(--ui-ack-rail);
+  stroke-width: 1.5;
+  transition:
+    fill 200ms ease,
+    stroke 200ms ease;
+}
+.ui-ack__dot[data-live] circle {
+  fill: var(--ui-ack-dot);
+  stroke: var(--ui-ack-card);
+}
+.ui-ack__dot[data-head] circle {
+  fill: var(--ui-ack-head);
+  stroke: var(--ui-ack-card);
+}
+.ui-ack__dot {
+  animation: ui-ack-pop 180ms var(--ui-ack-ease) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.ui-ack__glint {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ui-ack-glint 700ms 120ms ease-in-out both;
+}
+.ui-ack__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--ui-ack-row);
+  padding: 0 14px 0 var(--ui-ack-gutter);
+  outline: none;
+  color: var(--ui-ack-ink);
+  transition: padding-left 240ms var(--ui-ack-ease);
+  animation: ui-ack-rise 180ms var(--ui-ack-ease) both;
+}
+.ui-ack__row::before {
+  content: "";
+  position: absolute;
+  inset: 2px 6px;
+  z-index: -1;
+  border-radius: 8px;
+  background: var(--ui-ack-hover);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+.ui-ack__row:hover::before,
+.ui-ack__row:focus-visible::before {
+  opacity: 1;
+}
+.ui-ack__row:focus-visible::before {
+  outline: 2px solid var(--ui-ack-focus);
+  outline-offset: -2px;
+}
+.ui-ack__list {
+  isolation: isolate;
+}
+.ui-ack__row:not([data-live]) > :not(.ui-ack__rewind) {
+  opacity: var(--ui-ack-dim);
+  transition: opacity 200ms ease;
+}
+.ui-ack__row:not([data-live]):is(:hover, :focus-visible)
+  > :not(.ui-ack__rewind) {
+  opacity: 0.8;
+}
+.ui-ack__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: -1px;
+  border-radius: 6px;
+  background: var(--ui-ack-card);
+  box-shadow: var(--ui-ack-edge);
+}
+.ui-ack__icon > svg {
+  width: 12px;
+  height: 12px;
+}
+.ui-ack__name {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: opacity 200ms ease;
+}
+.ui-ack__row[data-status="running"] .ui-ack__name {
+  background: linear-gradient(
+      90deg,
+      var(--ui-ack-ink) 0 40%,
+      var(--ui-ack-faint) 50%,
+      var(--ui-ack-ink) 60% 100%
+    )
+    0 0 / 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: ui-ack-shine 800ms linear infinite;
+}
+.ui-ack__row[data-status="stopped"] .ui-ack__name {
+  color: var(--ui-ack-muted);
+}
+.ui-ack__attempt,
+.ui-ack__badge {
+  flex: none;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--ui-ack-chip);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--ui-ack-text);
+  white-space: nowrap;
+}
+.ui-ack__badge {
+  background: var(--ui-ack-failed-bg);
+  color: var(--ui-ack-failed-ink);
+}
+.ui-ack__meta {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  font-size: 12.5px;
+  line-height: 18px;
+  color: var(--ui-ack-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  transition: opacity 150ms ease;
+}
+.ui-ack__time {
+  min-width: 30px;
+  text-align: right;
+}
+.ui-ack__files,
+.ui-ack__stopped {
+  color: var(--ui-ack-faint);
+}
+.ui-ack__files {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: 62px;
+}
+.ui-ack__files svg {
+  color: var(--ui-ack-muted);
+}
+.ui-ack__rewind {
+  position: absolute;
+  top: 50%;
+  right: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  margin: 0;
+  padding: 0 10px 0 8px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ui-ack-card);
+  box-shadow: var(--ui-ack-edge);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--ui-ack-ink);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.96);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+.ui-ack__rewind svg {
+  color: var(--ui-ack-muted);
+}
+.ui-ack__row:is(:hover, :focus-visible) .ui-ack__rewind {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+.ui-ack__row:has(.ui-ack__rewind):is(:hover, :focus-visible) .ui-ack__meta {
+  opacity: 0;
+}
+.ui-ack__rewind:active {
+  transform: translateY(-50%) scale(0.97);
+}
+@media (hover: none) {
+  .ui-ack__rewind {
+    right: 6px;
+    height: 28px;
+  }
+}
+@container ui-ack (max-width: 440px) {
+  .ui-ack__task,
+  .ui-ack__files {
+    display: none;
+  }
+}
+@keyframes ui-ack-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes ui-ack-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@keyframes ui-ack-rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+@keyframes ui-ack-glint {
+  from {
+    transform: translateX(-10px) rotate(20deg);
+  }
+  to {
+    transform: translateX(10px) rotate(20deg);
+  }
+}
+@keyframes ui-ack-shine {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-ack *,
+  .ui-ack *::before,
+  .ui-ack *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .ui-ack__row[data-status="running"] .ui-ack__name {
+    background: none;
+    color: var(--ui-ack-ink);
+  }
+  .ui-ack__glint {
+    display: none;
+  }
+}
+:where(.dark, [data-theme="dark"]) .ui-ack {
+  --ui-ack-tray: #19191c;
+  --ui-ack-card: #232326;
+  --ui-ack-strong: #ededed;
+  --ui-ack-ink: #ededed;
+  --ui-ack-text: #a1a1a6;
+  --ui-ack-muted: #7c7c82;
+  --ui-ack-faint: #4a4a50;
+  --ui-ack-line: #2a2a2e;
+  --ui-ack-hover: rgba(255, 255, 255, 0.04);
+  --ui-ack-chip: #2c2c30;
+  --ui-ack-accent: #5b9aff;
+  --ui-ack-link: #4f8fdb;
+  --ui-ack-rail: #3a3a40;
+  --ui-ack-dot: #4f8fdb;
+  --ui-ack-head: #5b9aff;
+  --ui-ack-failed-bg: #3b1714;
+  --ui-ack-failed-ink: #ff977d;
+  --ui-ack-focus: rgba(77, 141, 255, 0.8);
+  --ui-ack-edge: 0 0 0 1px var(--ui-ack-line), 0 1px 2px rgba(0, 0, 0, 0.3);
+}

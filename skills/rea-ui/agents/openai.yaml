@@ -1,0 +1,6 @@
+interface:
+  display_name: "rea/ui"
+  short_description: "Find and copy rea/ui React components as TSX/CSS pairs"
+  default_prompt: "Use $rea-ui to choose suitable components and integrate their complete TSX/CSS files into my React project."
+policy:
+  allow_implicit_invocation: true

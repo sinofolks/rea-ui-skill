@@ -1,0 +1,71 @@
+{
+  "slug": "inline-diff",
+  "name": "InlineDiff",
+  "variant": "default",
+  "props": [
+    {
+      "name": "changes",
+      "type": "DiffSegment[] | undefined",
+      "required": false,
+      "description": "Explicit segments take precedence over original/suggested.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "label",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onChange",
+      "type": "((text: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onDone",
+      "type": "((text: string) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "original",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "ref",
+      "type": "Ref<InlineDiffHandle> | undefined",
+      "required": false,
+      "description": "React 19 ref-as-prop API.",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "suggested",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

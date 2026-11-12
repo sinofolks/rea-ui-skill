@@ -1,0 +1,47 @@
+{
+  "slug": "change-summary",
+  "name": "ChangeSummary",
+  "variant": "default",
+  "props": [
+    {
+      "name": "changes",
+      "type": "MetricChange[]",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "period",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Small text on the right of the heading, e.g. \"This week\"",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "title",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    }
+  ]
+}

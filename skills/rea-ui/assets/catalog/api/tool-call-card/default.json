@@ -1,0 +1,140 @@
+{
+  "slug": "tool-call-card",
+  "name": "ToolCallCard",
+  "variant": "default",
+  "props": [
+    {
+      "name": "args",
+      "type": "unknown",
+      "required": false,
+      "description": "Arguments the tool was called with – objects are pretty-printed, JSON strings parsed",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "className",
+      "type": "string | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Start expanded (uncontrolled)",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "duration",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Final duration in ms – otherwise measured while the card shows \"running\"",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "error",
+      "type": "string | undefined",
+      "required": false,
+      "description": "Error message, shown when status is \"error\"",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "icon",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Icon in the tile on the left – defaults to a wrench",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "maxCodeHeight",
+      "type": "number | undefined",
+      "required": false,
+      "description": "Height in px after which arguments and result are capped with a fade and \"Show all\"",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "Tool name as the agent calls it, shown in mono – e.g. \"search_web\"",
+      "inherited": false,
+      "control": "text"
+    },
+    {
+      "name": "onOpenChange",
+      "type": "((open: boolean) => void) | undefined",
+      "required": false,
+      "description": "",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "onRetry",
+      "type": "(() => void) | undefined",
+      "required": false,
+      "description": "Shows a Retry button next to the error",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "open",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Expanded state (controlled)",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "openOnError",
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Opens the card when the call fails and closes it again on the next run, unless someone toggled it",
+      "inherited": false,
+      "control": "boolean"
+    },
+    {
+      "name": "result",
+      "type": "unknown",
+      "required": false,
+      "description": "What the tool returned – objects are pretty-printed, JSON strings parsed, other text shown as is",
+      "inherited": false,
+      "control": null
+    },
+    {
+      "name": "startedAt",
+      "type": "number | undefined",
+      "required": false,
+      "description": "When the call started (ms since epoch, e.g. Date.now()) – the live timer counts from here",
+      "inherited": false,
+      "control": "number"
+    },
+    {
+      "name": "status",
+      "type": "ToolCallStatus",
+      "required": true,
+      "description": "",
+      "inherited": false,
+      "control": "select",
+      "options": [
+        "running",
+        "error",
+        "success"
+      ]
+    },
+    {
+      "name": "summary",
+      "type": "ReactNode",
+      "required": false,
+      "description": "Short human summary – e.g. \"Searched the web for 'CRM pricing 2026'\"",
+      "inherited": false,
+      "control": null
+    }
+  ]
+}
